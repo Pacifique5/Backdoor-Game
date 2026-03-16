@@ -15,6 +15,7 @@ from unittest.mock import patch, MagicMock
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'Game'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'Server'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'cleanup'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 
 # ─────────────────────────────────────────────
@@ -184,9 +185,10 @@ class TestReverseShell(unittest.TestCase):
 
     def test_default_ip_and_port(self):
         from reverse_shell import ReverseShell
+        import config
         shell = ReverseShell()
-        self.assertEqual(shell.server_ip, '192.168.56.1')
-        self.assertEqual(shell.server_port, 4444)
+        self.assertEqual(shell.server_ip, config.ATTACKER_IP)
+        self.assertEqual(shell.server_port, config.LISTENER_PORT)
 
     def test_custom_ip_and_port(self):
         from reverse_shell import ReverseShell

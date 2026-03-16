@@ -11,10 +11,14 @@ import urllib.request
 import urllib.error
 import tempfile
 
+# Load config from project root
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from config import ATTACKER_IP, FILE_SERVER_PORT
+
 class DependencyChecker:
     def __init__(self):
         self.system = platform.system()
-        self.local_server = "http://192.168.56.1:8000"  # VM host IP
+        self.local_server = f"http://{ATTACKER_IP}:{FILE_SERVER_PORT}"
         self.required_apps = self.get_required_apps()
         
     def get_required_apps(self):

