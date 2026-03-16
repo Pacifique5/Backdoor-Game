@@ -1,0 +1,9 @@
+# Python dependencies for educational backdoor game
+# Install with: pip install -r requirements.txt
+
+# No external dependencies required for core functionality
+# All modules use Python standard library
+
+# Optional for enhanced features:
+# Pillow>=9.0.0  # For screenshot functionality (educational)
+# cryptography>=3.4.0  # For encryption demonstrations
